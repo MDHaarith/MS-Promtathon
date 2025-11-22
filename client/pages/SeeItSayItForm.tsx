@@ -3,15 +3,14 @@ import { ArrowLeft, ArrowRight } from "lucide-react";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-const GOOGLE_FORM_ID = "1FAIpQLSe8UNU5n8ok9tCuF7wRHdyaR3lI6hHvV-0Gw78OeD7c9GMxzQ";
-const FORM_ENTRY_ID_NAME = "entry.123456789"; // Update with actual form field ID
-const FORM_ENTRY_ID_EMAIL = "entry.123456790"; // Update with actual form field ID
-const FORM_ENTRY_ID_REG = "entry.123456791"; // Update with actual form field ID
-const FORM_ENTRY_ID_DEPT = "entry.123456792"; // Update with actual form field ID
-const FORM_ENTRY_ID_SECTION = "entry.123456793"; // Update with actual form field ID
-const FORM_ENTRY_ID_EVENT = "entry.123456794"; // Update with actual form field ID
+const GOOGLE_FORM_ID = "1FAIpQLScinbo3nP8RAKPUaq4pVRHxiaQwhg0WM65B6ywcxwOt5oncoA";
+const FORM_ENTRY_ID_NAME = "entry.1884265043";
+const FORM_ENTRY_ID_EMAIL = "entry.1839467031";
+const FORM_ENTRY_ID_REG = "entry.1195877935";
+const FORM_ENTRY_ID_DEPT = "entry.513669972";
+const FORM_ENTRY_ID_SECTION = "entry.1212348438";
 
-const sections = ["A", "B", "C", "D", "E", "F"];
+const sections = ["1", "2", "3"];
 const departments = [
   "Electronics and Communication Engineering",
   "Computer Science and Engineering",
@@ -100,7 +99,6 @@ export default function SeeItSayItForm() {
       submitData.append(FORM_ENTRY_ID_REG, formData.regNo);
       submitData.append(FORM_ENTRY_ID_DEPT, formData.department);
       submitData.append(FORM_ENTRY_ID_SECTION, formData.section);
-      submitData.append(FORM_ENTRY_ID_EVENT, "See It Say It Get It");
 
       await fetch(
         `https://docs.google.com/forms/d/e/${GOOGLE_FORM_ID}/formResponse`,
@@ -161,7 +159,7 @@ export default function SeeItSayItForm() {
                 </label>
                 <p className="text-xs text-muted-foreground mb-3">
                   Format: Your Name will be converted to CAPITAL FORMAT WITH INITIAL AT LAST
-                  (e.g., "John Doe" becomes "JOHN D")
+                  (e.g., "Navin Kumar K" becomes "NAVIN KUMAR K")
                 </p>
                 <input
                   type="text"
@@ -198,7 +196,7 @@ export default function SeeItSayItForm() {
                   name="regNo"
                   value={formData.regNo}
                   onChange={handleInputChange}
-                  placeholder="e.g., RA2301001010010"
+                  placeholder="e.g., 14222510XXXX"
                   className="w-full px-4 py-2 rounded-lg border border-border bg-background hover:border-primary/50 focus:border-primary focus:outline-none transition-colors"
                   required
                 />
@@ -208,20 +206,15 @@ export default function SeeItSayItForm() {
                 <label className="block text-sm font-semibold mb-2">
                   Department <span className="text-red-500">*</span>
                 </label>
-                <select
+                <input
+                  type="text"
                   name="department"
                   value={formData.department}
                   onChange={handleInputChange}
+                  placeholder="Enter department"
                   className="w-full px-4 py-2 rounded-lg border border-border bg-background hover:border-primary/50 focus:border-primary focus:outline-none transition-colors"
                   required
-                >
-                  <option value="">Select Department</option>
-                  {departments.map((dept) => (
-                    <option key={dept} value={dept}>
-                      {dept}
-                    </option>
-                  ))}
-                </select>
+                />
               </div>
 
               <div>

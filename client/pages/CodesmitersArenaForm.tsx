@@ -3,9 +3,9 @@ import { ArrowLeft, ArrowRight } from "lucide-react";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-const GOOGLE_FORM_ID = "1FAIpQLSe8UNU5n8ok9tCuF7wRHdyaR3lI6hHvV-0Gw78OeD7c9GMxzQ";
+const GOOGLE_FORM_ID = "1FAIpQLSfMtWEdU0ZUx0gP0RkkPIiA20M12710F321l3_1qCZ2movcgQ";
 
-const sections = ["A", "B", "C", "D", "E", "F"];
+const sections = ["1", "2", "3"];
 const departments = [
   "Electronics and Communication Engineering",
   "Computer Science and Engineering",
@@ -110,17 +110,16 @@ export default function CodesmitersArenaForm() {
       const formattedMember2Name = formatName(formData.member2.name);
 
       const submitData = new FormData();
-      submitData.append("entry.1", formattedMember1Name); // Member 1 Name
-      submitData.append("entry.2", formData.member1.email); // Member 1 Email
-      submitData.append("entry.3", formData.member1.regNo); // Member 1 Reg No
-      submitData.append("entry.4", formData.member1.department); // Member 1 Department
-      submitData.append("entry.5", formData.member1.section); // Member 1 Section
-      submitData.append("entry.6", formattedMember2Name); // Member 2 Name
-      submitData.append("entry.7", formData.member2.email); // Member 2 Email
-      submitData.append("entry.8", formData.member2.regNo); // Member 2 Reg No
-      submitData.append("entry.9", formData.member2.department); // Member 2 Department
-      submitData.append("entry.10", formData.member2.section); // Member 2 Section
-      submitData.append("entry.11", "Codesmith's Arena"); // Event Name
+      submitData.append("entry.1884265043", formattedMember1Name); // Member 1 Name
+      submitData.append("entry.551813573", formData.member1.email); // Member 1 Email
+      submitData.append("entry.513669972", formData.member1.regNo); // Member 1 Reg No
+      submitData.append("entry.85602000", formData.member1.department); // Member 1 Department
+      submitData.append("entry.1212348438", formData.member1.section); // Member 1 Section
+      submitData.append("entry.994293442", formattedMember2Name); // Member 2 Name
+      submitData.append("entry.258782101", formData.member2.email); // Member 2 Email
+      submitData.append("entry.1696388815", formData.member2.regNo); // Member 2 Reg No
+      submitData.append("entry.318312040", formData.member2.department); // Member 2 Department
+      submitData.append("entry.1521586158", formData.member2.section); // Member 2 Section
 
       await fetch(
         `https://docs.google.com/forms/d/e/${GOOGLE_FORM_ID}/formResponse`,
@@ -162,7 +161,7 @@ export default function CodesmitersArenaForm() {
             </label>
             <p className="text-xs text-muted-foreground mb-3">
               Format: Your Name will be converted to CAPITAL FORMAT WITH INITIAL AT LAST
-              (e.g., "John Doe" becomes "JOHN D")
+              (e.g., "Navin Kumar K" becomes "NAVIN KUMAR K")
             </p>
             <input
               type="text"
@@ -202,7 +201,7 @@ export default function CodesmitersArenaForm() {
               onChange={(e) =>
                 handleInputChange(memberKey as "member1" | "member2", "regNo", e.target.value)
               }
-              placeholder="e.g., RA2301001010010"
+              placeholder="e.g., 14222510XXXX"
               className="w-full px-4 py-2 rounded-lg border border-border bg-background hover:border-primary/50 focus:border-primary focus:outline-none transition-colors"
               required
             />
@@ -212,7 +211,8 @@ export default function CodesmitersArenaForm() {
             <label className="block text-sm font-semibold mb-2">
               Department <span className="text-red-500">*</span>
             </label>
-            <select
+            <input
+              type="text"
               value={data.department}
               onChange={(e) =>
                 handleInputChange(
@@ -221,16 +221,10 @@ export default function CodesmitersArenaForm() {
                   e.target.value
                 )
               }
+              placeholder="Enter department"
               className="w-full px-4 py-2 rounded-lg border border-border bg-background hover:border-primary/50 focus:border-primary focus:outline-none transition-colors"
               required
-            >
-              <option value="">Select Department</option>
-              {departments.map((dept) => (
-                <option key={dept} value={dept}>
-                  {dept}
-                </option>
-              ))}
-            </select>
+            />
           </div>
 
           <div>
