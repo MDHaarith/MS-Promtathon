@@ -3,7 +3,7 @@ import { ArrowLeft, ArrowRight } from "lucide-react";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-const GOOGLE_FORM_ID = "1FAIpQLSe8UNU5n8ok9tCuF7wRHdyaR3lI6hHvV-0Gw78OeD7c9GMxzQ";
+const GOOGLE_FORM_ID = "1FAIpQLSfMtWEdU0ZUx0gP0RkkPIiA20M12710F321l3_1qCZ2movcgQ";
 
 const sections = ["1", "2", "3"];
 const departments = [

@@ -3,7 +3,7 @@ import { ArrowLeft, ArrowRight } from "lucide-react";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-const GOOGLE_FORM_ID = "1FAIpQLSe8UNU5n8ok9tCuF7wRHdyaR3lI6hHvV-0Gw78OeD7c9GMxzQ";
+const GOOGLE_FORM_ID = "1FAIpQLScinbo3nP8RAKPUaq4pVRHxiaQwhg0WM65B6ywcxwOt5oncoA";
 const FORM_ENTRY_ID_NAME = "entry.1884265043";
 const FORM_ENTRY_ID_EMAIL = "entry.1839467031";
 const FORM_ENTRY_ID_REG = "entry.1195877935";
