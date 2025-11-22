@@ -164,7 +164,9 @@ export default function CodesmitersArenaForm() {
                 handleInputChange(memberKey as "member1" | "member2", "name", e.target.value)
               }
               placeholder="Enter full name"
-              className="w-full px-4 py-2 rounded-lg border border-border bg-background hover:border-primary/50 focus:border-primary focus:outline-none transition-colors"
+              autoComplete="name"
+              spellCheck="false"
+              className="w-full px-4 py-2 rounded-lg border border-border bg-background hover:border-primary/50 focus:border-primary focus:outline-none transition-colors text-base"
               required
             />
           </div>
@@ -180,7 +182,8 @@ export default function CodesmitersArenaForm() {
                 handleInputChange(memberKey as "member1" | "member2", "email", e.target.value)
               }
               placeholder="email@example.com"
-              className="w-full px-4 py-2 rounded-lg border border-border bg-background hover:border-primary/50 focus:border-primary focus:outline-none transition-colors"
+              autoComplete="email"
+              className="w-full px-4 py-2 rounded-lg border border-border bg-background hover:border-primary/50 focus:border-primary focus:outline-none transition-colors text-base"
               required
             />
           </div>
@@ -196,7 +199,8 @@ export default function CodesmitersArenaForm() {
                 handleInputChange(memberKey as "member1" | "member2", "regNo", e.target.value)
               }
               placeholder="e.g., 14222510XXXX"
-              className="w-full px-4 py-2 rounded-lg border border-border bg-background hover:border-primary/50 focus:border-primary focus:outline-none transition-colors"
+              autoComplete="off"
+              className="w-full px-4 py-2 rounded-lg border border-border bg-background hover:border-primary/50 focus:border-primary focus:outline-none transition-colors text-base"
               required
             />
           </div>
@@ -216,7 +220,8 @@ export default function CodesmitersArenaForm() {
                 )
               }
               placeholder="Enter department"
-              className="w-full px-4 py-2 rounded-lg border border-border bg-background hover:border-primary/50 focus:border-primary focus:outline-none transition-colors"
+              autoComplete="off"
+              className="w-full px-4 py-2 rounded-lg border border-border bg-background hover:border-primary/50 focus:border-primary focus:outline-none transition-colors text-base"
               required
             />
           </div>
