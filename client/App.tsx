@@ -8,6 +8,8 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Index from "./pages/Index";
 import Register from "./pages/Register";
+import SeeItSayItForm from "./pages/SeeItSayItForm";
+import CodesmitersArenaForm from "./pages/CodesmitersArenaForm";
 import NotFound from "./pages/NotFound";
 import { useEffect } from "react";
 
@@ -35,6 +37,8 @@ const AppContent = () => {
       <Routes>
         <Route path="/" element={<Index />} />
         <Route path="/register" element={<Register />} />
+        <Route path="/register/see-it-say-it" element={<SeeItSayItForm />} />
+        <Route path="/register/codesmiths-arena" element={<CodesmitersArenaForm />} />
         {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
         <Route path="*" element={<NotFound />} />
       </Routes>
