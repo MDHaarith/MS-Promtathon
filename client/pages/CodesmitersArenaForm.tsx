@@ -145,10 +145,10 @@ export default function CodesmitersArenaForm() {
     const memberKey = memberNum === 1 ? "member1" : "member2";
 
     return (
-      <div className="p-6 rounded-lg border border-primary/20 bg-primary/5">
-        <h3 className="text-lg font-bold mb-6 text-primary">Member {memberNum}</h3>
+      <div className="p-4 sm:p-6 rounded-lg border border-primary/20 bg-primary/5">
+        <h3 className="text-base sm:text-lg font-bold mb-4 sm:mb-6 text-primary">Member {memberNum}</h3>
 
-        <div className="space-y-4">
+        <div className="space-y-3 sm:space-y-4">
           <div>
             <label className="block text-sm font-semibold mb-2">
               Full Name <span className="text-red-500">*</span>
@@ -253,12 +253,12 @@ export default function CodesmitersArenaForm() {
 
   return (
     <Layout>
-      <section className="min-h-[calc(100vh-80px)] pt-20 pb-10 px-4">
+      <section className="w-full pt-6 sm:pt-10 md:pt-20 pb-6 sm:pb-8 md:pb-10 px-3 sm:px-4">
         <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-background to-secondary/10 -z-10" />
-        <div className="absolute top-20 right-10 w-72 h-72 bg-primary/20 rounded-full blur-3xl -z-10" />
-        <div className="absolute bottom-0 left-10 w-72 h-72 bg-secondary/20 rounded-full blur-3xl -z-10" />
+        <div className="hidden sm:block absolute top-20 right-10 w-72 h-72 bg-primary/20 rounded-full blur-3xl -z-10" />
+        <div className="hidden md:block absolute bottom-0 left-10 w-72 h-72 bg-secondary/20 rounded-full blur-3xl -z-10" />
 
-        <div className="container max-w-2xl">
+        <div className="w-full max-w-2xl mx-auto">
           <button
             onClick={() => navigate("/register")}
             className="inline-flex items-center gap-2 text-primary hover:text-primary/80 transition-colors mb-8"
@@ -267,16 +267,16 @@ export default function CodesmitersArenaForm() {
             Back to Events
           </button>
 
-          <div className="mb-12 animate-fade-in-up">
-            <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-primary via-secondary to-accent bg-clip-text text-transparent">
+          <div className="mb-6 sm:mb-10 md:mb-12 animate-fade-in-up">
+            <h1 className="text-2xl sm:text-3xl md:text-5xl font-bold mb-2 sm:mb-4 bg-gradient-to-r from-primary via-secondary to-accent bg-clip-text text-transparent">
               Codesmith's Arena
             </h1>
-            <p className="text-sm sm:text-base md:text-lg text-muted-foreground">
+            <p className="text-xs sm:text-sm md:text-lg text-muted-foreground">
               AI-Assisted Coding Challenge Registration - Team of 2
             </p>
           </div>
 
-          <div className="bg-card rounded-xl border border-primary/20 p-8 animate-fade-in-up">
+          <div className="bg-card rounded-lg sm:rounded-xl border border-primary/20 p-4 sm:p-6 md:p-8 animate-fade-in-up">
             <form onSubmit={handleSubmit} className="space-y-8">
               {error && (
                 <div className="p-4 rounded-lg bg-red-500/10 border border-red-500/30 text-red-600">
