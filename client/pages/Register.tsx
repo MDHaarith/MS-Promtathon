@@ -1,11 +1,15 @@
 import Layout from "@/components/Layout";
-import { Image, Code2, ArrowRight } from "lucide-react";
+import { Image, Code2, ArrowRight, CheckCircle } from "lucide-react";
 import { useState } from "react";
+import { useNavigate, useSearchParams } from "react-router-dom";
 
 const GOOGLE_FORM_URL =
   "https://docs.google.com/forms/d/e/1FAIpQLSe8UNU5n8ok9tCuF7wRHdyaR3lI6hHvV-0Gw78OeD7c9GMxzQ/viewform";
 
 export default function Register() {
+  const navigate = useNavigate();
+  const [searchParams] = useSearchParams();
+  const showSuccess = searchParams.get("success") === "true";
   const [selectedEvent, setSelectedEvent] = useState<string | null>(null);
 
   return (
@@ -16,6 +20,18 @@ export default function Register() {
         <div className="absolute bottom-0 left-10 w-72 h-72 bg-secondary/20 rounded-full blur-3xl -z-10" />
 
         <div className="container max-w-5xl">
+          {showSuccess && (
+            <div className="mb-12 p-6 rounded-xl bg-green-500/10 border border-green-500/30 flex items-center gap-4 animate-fade-in-up">
+              <CheckCircle className="w-8 h-8 text-green-600 flex-shrink-0" />
+              <div>
+                <h3 className="font-bold text-green-600 mb-1">Registration Successful!</h3>
+                <p className="text-sm text-green-600/90">
+                  Thank you for registering. We've received your submission and will send you a confirmation email shortly.
+                </p>
+              </div>
+            </div>
+          )}
+
           <div className="text-center mb-16 animate-fade-in-up">
             <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 bg-gradient-to-r from-primary via-secondary to-accent bg-clip-text text-transparent">
               Register for PROMPTATHON
@@ -35,7 +51,7 @@ export default function Register() {
               color="from-primary"
               isSelected={selectedEvent === "see-it-say-it"}
               onSelect={() => setSelectedEvent("see-it-say-it")}
-              formUrl={GOOGLE_FORM_URL}
+              onRegister={() => navigate("/register/see-it-say-it")}
             />
 
             {/* Event 2: Codesmith's Arena */}
@@ -47,7 +63,7 @@ export default function Register() {
               color="from-secondary"
               isSelected={selectedEvent === "codesmith"}
               onSelect={() => setSelectedEvent("codesmith")}
-              formUrl={GOOGLE_FORM_URL}
+              onRegister={() => navigate("/register/codesmiths-arena")}
             />
           </div>
 
@@ -55,16 +71,20 @@ export default function Register() {
             <div className="mt-12 p-8 rounded-xl bg-card border-2 border-primary/50 text-center animate-fade-in-up">
               <h2 className="text-2xl font-bold mb-4">Ready to Register?</h2>
               <p className="text-muted-foreground mb-6">
-                Click the button below to complete your registration
+                Fill out your details on the next page to complete your registration
               </p>
-              <a
-                href={GOOGLE_FORM_URL}
-                target="_blank"
-                rel="noopener noreferrer"
+              <button
+                onClick={() => {
+                  if (selectedEvent === "see-it-say-it") {
+                    navigate("/register/see-it-say-it");
+                  } else if (selectedEvent === "codesmith") {
+                    navigate("/register/codesmiths-arena");
+                  }
+                }}
                 className="inline-flex items-center gap-2 px-8 py-4 rounded-lg bg-gradient-to-r from-primary to-secondary text-primary-foreground font-semibold hover:opacity-90 transition-all transform hover:scale-105 hover:shadow-lg"
               >
-                Complete Registration <ArrowRight className="w-5 h-5" />
-              </a>
+                Continue to Registration <ArrowRight className="w-5 h-5" />
+              </button>
             </div>
           )}
 
@@ -117,7 +137,7 @@ function EventRegistrationCard({
   color,
   isSelected,
   onSelect,
-  formUrl,
+  onRegister,
 }: {
   icon: React.ReactNode;
   title: string;
@@ -126,7 +146,7 @@ function EventRegistrationCard({
   color: string;
   isSelected: boolean;
   onSelect: () => void;
-  formUrl: string;
+  onRegister: () => void;
 }) {
   return (
     <div className="group h-full animate-fade-in-up">
@@ -155,15 +175,13 @@ function EventRegistrationCard({
         </p>
 
         {isSelected && (
-          <a
-            href={formUrl}
-            target="_blank"
-            rel="noopener noreferrer"
+          <button
+            onClick={onRegister}
             className="inline-flex items-center gap-2 text-primary font-semibold hover:gap-3 transition-all duration-300 bg-primary/10 px-4 py-2 rounded-lg hover:bg-primary/20"
           >
             Register for this event
             <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" />
-          </a>
+          </button>
         )}
 
         {!isSelected && (
