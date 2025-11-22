@@ -150,10 +150,10 @@ export default function CodesmitersArenaForm() {
 
         <div className="space-y-3 sm:space-y-4">
           <div>
-            <label className="block text-sm font-semibold mb-2">
+            <label className="block text-xs sm:text-sm font-semibold mb-1 sm:mb-2">
               Full Name <span className="text-red-500">*</span>
             </label>
-            <p className="text-xs text-muted-foreground mb-3">
+            <p className="text-xs text-muted-foreground mb-2 sm:mb-3">
               Format: Your Name will be converted to CAPITAL FORMAT WITH INITIAL AT LAST
               (e.g., "Navin Kumar K" becomes "NAVIN KUMAR K")
             </p>
@@ -172,7 +172,7 @@ export default function CodesmitersArenaForm() {
           </div>
 
           <div>
-            <label className="block text-sm font-semibold mb-2">
+            <label className="block text-xs sm:text-sm font-semibold mb-1 sm:mb-2">
               Email <span className="text-red-500">*</span>
             </label>
             <input
@@ -189,7 +189,7 @@ export default function CodesmitersArenaForm() {
           </div>
 
           <div>
-            <label className="block text-sm font-semibold mb-2">
+            <label className="block text-xs sm:text-sm font-semibold mb-1 sm:mb-2">
               Registration Number <span className="text-red-500">*</span>
             </label>
             <input
@@ -206,7 +206,7 @@ export default function CodesmitersArenaForm() {
           </div>
 
           <div>
-            <label className="block text-sm font-semibold mb-2">
+            <label className="block text-xs sm:text-sm font-semibold mb-1 sm:mb-2">
               Department <span className="text-red-500">*</span>
             </label>
             <input
@@ -227,7 +227,7 @@ export default function CodesmitersArenaForm() {
           </div>
 
           <div>
-            <label className="block text-sm font-semibold mb-2">
+            <label className="block text-xs sm:text-sm font-semibold mb-1 sm:mb-2">
               Section <span className="text-red-500">*</span>
             </label>
             <select
