@@ -117,9 +117,9 @@ export default function SeeItSayItForm() {
 
   return (
     <Layout>
-      <section className="w-full min-h-screen pt-6 sm:pt-10 md:pt-20 pb-6 sm:pb-8 md:pb-10 px-3 sm:px-4 bg-gradient-to-br from-primary/10 via-background to-secondary/10">
+      <section className="w-full relative pt-6 sm:pt-10 md:pt-20 pb-10 px-3 sm:px-4 bg-gradient-to-br from-primary/10 via-background to-secondary/10 overflow-x-hidden" style={{minHeight: 'auto'}}>
 
-        <div className="w-full max-w-2xl mx-auto">
+        <div className="w-full max-w-2xl mx-auto relative z-20">
           <button
             onClick={() => navigate("/register")}
             className="inline-flex items-center gap-1 sm:gap-2 text-primary hover:text-primary/80 transition-colors mb-4 sm:mb-6 md:mb-8 text-sm sm:text-base"
@@ -162,7 +162,7 @@ export default function SeeItSayItForm() {
                   autoComplete="name"
                   spellCheck="false"
                   inputMode="text"
-                  className="w-full px-4 py-2 rounded-lg border border-border bg-background hover:border-primary/50 focus:border-primary focus:outline-none transition-colors text-base"
+                  className="w-full px-4 py-2 rounded-lg border border-border bg-background hover:border-primary/50 focus:border-primary focus:outline-none transition-colors text-base [-webkit-appearance:none]"
                   required
                 />
               </div>
@@ -179,7 +179,7 @@ export default function SeeItSayItForm() {
                   placeholder="your.email@example.com"
                   autoComplete="email"
                   inputMode="email"
-                  className="w-full px-4 py-2 rounded-lg border border-border bg-background hover:border-primary/50 focus:border-primary focus:outline-none transition-colors text-base"
+                  className="w-full px-4 py-2 rounded-lg border border-border bg-background hover:border-primary/50 focus:border-primary focus:outline-none transition-colors text-base [-webkit-appearance:none]"
                   required
                 />
               </div>
@@ -196,7 +196,7 @@ export default function SeeItSayItForm() {
                   placeholder="e.g., 14222510XXXX"
                   autoComplete="off"
                   inputMode="numeric"
-                  className="w-full px-4 py-2 rounded-lg border border-border bg-background hover:border-primary/50 focus:border-primary focus:outline-none transition-colors text-base"
+                  className="w-full px-4 py-2 rounded-lg border border-border bg-background hover:border-primary/50 focus:border-primary focus:outline-none transition-colors text-base [-webkit-appearance:none]"
                   required
                 />
               </div>
@@ -213,7 +213,7 @@ export default function SeeItSayItForm() {
                   placeholder="Enter department"
                   autoComplete="off"
                   inputMode="text"
-                  className="w-full px-4 py-2 rounded-lg border border-border bg-background hover:border-primary/50 focus:border-primary focus:outline-none transition-colors text-base"
+                  className="w-full px-4 py-2 rounded-lg border border-border bg-background hover:border-primary/50 focus:border-primary focus:outline-none transition-colors text-base [-webkit-appearance:none]"
                   required
                 />
               </div>
@@ -226,7 +226,7 @@ export default function SeeItSayItForm() {
                   name="section"
                   value={formData.section}
                   onChange={handleInputChange}
-                  className="w-full px-4 py-2 rounded-lg border border-border bg-background hover:border-primary/50 focus:border-primary focus:outline-none transition-colors text-base appearance-none cursor-pointer"
+                  className="w-full px-4 py-2 rounded-lg border border-border bg-background hover:border-primary/50 focus:border-primary focus:outline-none transition-colors text-base appearance-none cursor-pointer [-webkit-appearance:none]"
                   required
                 >
                   <option value="">Select Section</option>
