@@ -44,13 +44,7 @@ export default function SeeItSayItForm() {
   };
 
   const formatName = (name: string): string => {
-    const trimmed = name.trim();
-    if (trimmed.length === 0) return "";
-    const parts = trimmed.split(" ");
-    const lastName = parts[parts.length - 1];
-    const firstLetter = lastName.charAt(0).toUpperCase();
-    const restOfName = parts.slice(0, -1).join(" ").toUpperCase();
-    return `${restOfName} ${firstLetter}`.trim();
+    return name.trim().toUpperCase();
   };
 
   const validateForm = (): boolean => {
