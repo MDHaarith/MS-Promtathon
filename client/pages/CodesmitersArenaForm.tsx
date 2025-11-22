@@ -1,6 +1,6 @@
 import Layout from "@/components/Layout";
 import { ArrowLeft, ArrowRight } from "lucide-react";
-import { useState } from "react";
+import { useState, useCallback } from "react";
 import { useNavigate } from "react-router-dom";
 
 const GOOGLE_FORM_ID = "1FAIpQLSfMtWEdU0ZUx0gP0RkkPIiA20M12710F321l3_1qCZ2movcgQ";
@@ -44,20 +44,23 @@ export default function CodesmitersArenaForm() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [error, setError] = useState("");
 
-  const handleInputChange = (
-    memberNum: "member1" | "member2",
-    field: keyof Member,
-    value: string
-  ) => {
-    setFormData((prev) => ({
-      ...prev,
-      [memberNum]: {
-        ...prev[memberNum],
-        [field]: value,
-      },
-    }));
-    setError("");
-  };
+  const handleInputChange = useCallback(
+    (
+      memberNum: "member1" | "member2",
+      field: keyof Member,
+      value: string
+    ) => {
+      setFormData((prev) => ({
+        ...prev,
+        [memberNum]: {
+          ...prev[memberNum],
+          [field]: value,
+        },
+      }));
+      setError("");
+    },
+    []
+  );
 
   const formatName = (name: string): string => {
     return name.trim().toUpperCase();
@@ -166,6 +169,7 @@ export default function CodesmitersArenaForm() {
               placeholder="Enter full name"
               autoComplete="name"
               spellCheck="false"
+              inputMode="text"
               className="w-full px-4 py-2 rounded-lg border border-border bg-background hover:border-primary/50 focus:border-primary focus:outline-none transition-colors text-base"
               required
             />
@@ -183,6 +187,7 @@ export default function CodesmitersArenaForm() {
               }
               placeholder="email@example.com"
               autoComplete="email"
+              inputMode="email"
               className="w-full px-4 py-2 rounded-lg border border-border bg-background hover:border-primary/50 focus:border-primary focus:outline-none transition-colors text-base"
               required
             />
@@ -200,6 +205,7 @@ export default function CodesmitersArenaForm() {
               }
               placeholder="e.g., 14222510XXXX"
               autoComplete="off"
+              inputMode="numeric"
               className="w-full px-4 py-2 rounded-lg border border-border bg-background hover:border-primary/50 focus:border-primary focus:outline-none transition-colors text-base"
               required
             />
@@ -221,6 +227,7 @@ export default function CodesmitersArenaForm() {
               }
               placeholder="Enter department"
               autoComplete="off"
+              inputMode="text"
               className="w-full px-4 py-2 rounded-lg border border-border bg-background hover:border-primary/50 focus:border-primary focus:outline-none transition-colors text-base"
               required
             />
@@ -235,7 +242,7 @@ export default function CodesmitersArenaForm() {
               onChange={(e) =>
                 handleInputChange(memberKey as "member1" | "member2", "section", e.target.value)
               }
-              className="w-full px-4 py-2 rounded-lg border border-border bg-background hover:border-primary/50 focus:border-primary focus:outline-none transition-colors text-base"
+              className="w-full px-4 py-2 rounded-lg border border-border bg-background hover:border-primary/50 focus:border-primary focus:outline-none transition-colors text-base appearance-none cursor-pointer"
               required
             >
               <option value="">Select Section</option>
@@ -253,10 +260,7 @@ export default function CodesmitersArenaForm() {
 
   return (
     <Layout>
-      <section className="w-full pt-6 sm:pt-10 md:pt-20 pb-6 sm:pb-8 md:pb-10 px-3 sm:px-4">
-        <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-background to-secondary/10 -z-10" />
-        <div className="hidden sm:block absolute top-20 right-10 w-72 h-72 bg-primary/20 rounded-full blur-3xl -z-10" />
-        <div className="hidden md:block absolute bottom-0 left-10 w-72 h-72 bg-secondary/20 rounded-full blur-3xl -z-10" />
+      <section className="w-full min-h-screen pt-6 sm:pt-10 md:pt-20 pb-6 sm:pb-8 md:pb-10 px-3 sm:px-4 bg-gradient-to-br from-primary/10 via-background to-secondary/10">
 
         <div className="w-full max-w-2xl mx-auto">
           <button
@@ -267,7 +271,7 @@ export default function CodesmitersArenaForm() {
             Back to Events
           </button>
 
-          <div className="mb-6 sm:mb-10 md:mb-12 animate-fade-in-up">
+          <div className="mb-6 sm:mb-10 md:mb-12">
             <h1 className="text-2xl sm:text-3xl md:text-5xl font-bold mb-2 sm:mb-4 bg-gradient-to-r from-primary via-secondary to-accent bg-clip-text text-transparent">
               Codesmith's Arena
             </h1>
@@ -276,7 +280,7 @@ export default function CodesmitersArenaForm() {
             </p>
           </div>
 
-          <div className="bg-card rounded-lg sm:rounded-xl border border-primary/20 p-4 sm:p-6 md:p-8 animate-fade-in-up">
+          <div className="bg-card rounded-lg sm:rounded-xl border border-primary/20 p-4 sm:p-6 md:p-8">
             <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-6 md:space-y-8">
               {error && (
                 <div className="p-3 sm:p-4 rounded-lg bg-red-500/10 border border-red-500/30 text-red-600 text-sm sm:text-base">
@@ -296,14 +300,6 @@ export default function CodesmitersArenaForm() {
                 {!isSubmitting && <ArrowRight className="w-4 sm:w-5 h-4 sm:h-5" />}
               </button>
             </form>
-          </div>
-
-          <div className="mt-4 sm:mt-6 md:mt-8 p-3 sm:p-6 rounded-lg bg-primary/5 border border-primary/20">
-            <p className="text-xs sm:text-sm text-muted-foreground">
-              <span className="font-semibold text-foreground">Note:</span> Both
-              team members' information is required. You'll receive confirmation
-              emails for both members.
-            </p>
           </div>
         </div>
       </section>
