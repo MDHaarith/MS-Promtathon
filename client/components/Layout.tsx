@@ -46,21 +46,21 @@ function Header({
   return (
     <>
       <header className="sticky top-0 z-50 w-full border-b border-border bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 transition-all duration-300">
-        <div className="container flex h-16 sm:h-20 items-center justify-between px-3 sm:px-4 gap-2 sm:gap-4">
+        <div className="container flex h-14 sm:h-16 md:h-20 items-center justify-between px-2 sm:px-3 md:px-4 gap-1.5 sm:gap-2 md:gap-3">
           <Link
             to="/"
-            className="flex items-center gap-1 sm:gap-2 font-bold text-xl sm:text-2xl hover:scale-105 transition-transform duration-300 flex-shrink-0"
+            className="flex items-center gap-1 sm:gap-1.5 md:gap-2 font-bold text-lg sm:text-xl md:text-2xl hover:scale-105 transition-transform duration-300 flex-shrink-0"
             onClick={closeMenu}
           >
-            <div className="w-8 sm:w-10 h-8 sm:h-10 rounded-lg bg-gradient-to-br from-primary to-secondary flex items-center justify-center transition-all duration-300 hover:shadow-lg">
-              <Zap className="w-5 sm:w-6 h-5 sm:h-6 text-white" />
+            <div className="w-7 sm:w-8 md:w-10 h-7 sm:h-8 md:h-10 rounded-lg bg-gradient-to-br from-primary to-secondary flex items-center justify-center transition-all duration-300 hover:shadow-lg">
+              <Zap className="w-4 sm:w-5 md:w-6 h-4 sm:h-5 md:h-6 text-white" />
             </div>
-            <span className="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent whitespace-nowrap">
+            <span className="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent whitespace-nowrap text-sm sm:text-base md:text-lg">
               PROMPTATHON
             </span>
           </Link>
 
-          <nav className="hidden lg:flex items-center gap-4 xl:gap-8 text-sm md:text-base flex-1 justify-center">
+          <nav className="hidden lg:flex items-center gap-3 xl:gap-6 text-xs md:text-sm flex-1 justify-center">
             <NavLink href="/#about">About</NavLink>
             <NavLink href="/#events">Events</NavLink>
             <NavLink href="/#workshop">Workshop</NavLink>
@@ -69,7 +69,7 @@ function Header({
             </NavLink>
           </nav>
 
-          <div className="flex items-center gap-1.5 sm:gap-3 flex-shrink-0">
+          <div className="flex items-center gap-1 sm:gap-2 md:gap-3 flex-shrink-0">
             <button
               onClick={onToggleDarkMode}
               className="p-1.5 sm:p-2 rounded-lg hover:bg-muted transition-all duration-300 transform hover:scale-110 hover:shadow-md"
@@ -83,7 +83,7 @@ function Header({
             </button>
             <Link
               to="/register"
-              className="px-2 sm:px-4 py-1.5 sm:py-2 rounded-lg bg-gradient-to-r from-primary to-secondary text-primary-foreground font-medium hover:opacity-90 transition-all duration-300 transform hover:scale-105 hover:shadow-lg text-xs sm:text-sm whitespace-nowrap"
+              className="px-2 sm:px-3 md:px-4 py-1.5 sm:py-2 rounded-lg bg-gradient-to-r from-primary to-secondary text-primary-foreground font-medium hover:opacity-90 transition-all duration-300 transform hover:scale-105 hover:shadow-lg text-[10px] sm:text-xs md:text-sm whitespace-nowrap"
               onClick={closeMenu}
             >
               Register
@@ -94,9 +94,9 @@ function Header({
               aria-label="Toggle menu"
             >
               {isMenuOpen ? (
-                <X className="w-6 h-6" />
+                <X className="w-5 h-5" />
               ) : (
-                <Menu className="w-6 h-6" />
+                <Menu className="w-5 h-5" />
               )}
             </button>
           </div>
@@ -104,7 +104,7 @@ function Header({
 
         {isMenuOpen && (
           <nav className="lg:hidden border-t border-border bg-background/95">
-            <div className="container px-3 py-4 space-y-3">
+            <div className="container px-2 sm:px-3 md:px-4 py-2.5 sm:py-3 md:py-4 space-y-2 sm:space-y-2.5">
               <MobileNavLink href="/#about" onClick={closeMenu}>
                 About
               </MobileNavLink>
@@ -138,7 +138,7 @@ function MobileNavLink({
     <a
       href={href}
       onClick={onClick}
-      className="block py-2 px-4 rounded-lg text-sm font-medium transition-all duration-300 hover:bg-muted hover:text-primary"
+      className="block py-1.5 sm:py-2 px-3 sm:px-4 rounded-lg text-xs sm:text-sm font-medium transition-all duration-300 hover:bg-muted hover:text-primary"
     >
       {children}
     </a>
@@ -157,7 +157,7 @@ function NavLink({
   return (
     <a
       href={href}
-      className={`text-sm font-medium transition-all duration-300 hover:text-primary relative group ${className || ""}`}
+      className={`text-xs md:text-sm font-medium transition-all duration-300 hover:text-primary relative group ${className || ""}`}
     >
       {children}
       <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-primary to-secondary transition-all duration-300 group-hover:w-full"></span>
@@ -167,22 +167,22 @@ function NavLink({
 
 function Footer() {
   return (
-    <footer className="border-t border-border bg-muted py-8 sm:py-12 mt-20 transition-all duration-300">
-      <div className="container px-3 sm:px-4">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 mb-8 sm:mb-12">
+    <footer className="border-t border-border bg-muted py-6 sm:py-8 md:py-10 lg:py-12 mt-12 sm:mt-14 md:mt-16 lg:mt-20 transition-all duration-300">
+      <div className="container px-2 sm:px-3 md:px-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5 md:gap-6 lg:gap-8 mb-6 sm:mb-8 md:mb-10 lg:mb-12">
           <div>
-            <h3 className="font-bold text-base sm:text-lg mb-3 sm:mb-4 bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
+            <h3 className="font-bold text-sm sm:text-base md:text-lg mb-2 sm:mb-3 md:mb-4 bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
               PROMPTATHON
             </h3>
-            <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed">
+            <p className="text-[10px] sm:text-xs md:text-sm text-muted-foreground leading-relaxed">
               Spread awareness about AI prompting and prompt engineering across
               campus.
             </p>
           </div>
 
           <div>
-            <h4 className="font-semibold text-sm sm:text-base mb-3 sm:mb-4">Events</h4>
-            <ul className="space-y-1.5 sm:space-y-2 text-xs sm:text-sm text-muted-foreground">
+            <h4 className="font-semibold text-xs sm:text-sm md:text-base mb-2 sm:mb-3 md:mb-4">Events</h4>
+            <ul className="space-y-1 sm:space-y-1.5 md:space-y-2 text-[10px] sm:text-xs md:text-sm text-muted-foreground">
               <li>
                 <a
                   href="#events"
@@ -214,8 +214,8 @@ function Footer() {
           </div>
 
           <div>
-            <h4 className="font-semibold text-sm sm:text-base mb-3 sm:mb-4">College</h4>
-            <ul className="space-y-1.5 sm:space-y-2 text-xs sm:text-sm text-muted-foreground">
+            <h4 className="font-semibold text-xs sm:text-sm md:text-base mb-2 sm:mb-3 md:mb-4">College</h4>
+            <ul className="space-y-1 sm:space-y-1.5 md:space-y-2 text-[10px] sm:text-xs md:text-sm text-muted-foreground">
               <li>
                 <a
                   href="https://srmvalliammai.ac.in/"
@@ -242,8 +242,8 @@ function Footer() {
           </div>
 
           <div>
-            <h4 className="font-semibold text-sm sm:text-base mb-3 sm:mb-4">Contact</h4>
-            <p className="text-xs sm:text-sm text-muted-foreground">
+            <h4 className="font-semibold text-xs sm:text-sm md:text-base mb-2 sm:mb-3 md:mb-4">Contact</h4>
+            <p className="text-[10px] sm:text-xs md:text-sm text-muted-foreground">
               <a
                 href="tel:+918015885707"
                 className="hover:text-primary transition-all duration-300 relative group inline-block break-words"
@@ -252,7 +252,7 @@ function Footer() {
                 <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
               </a>
             </p>
-            <p className="text-xs sm:text-sm text-muted-foreground mt-2 break-words">
+            <p className="text-[10px] sm:text-xs md:text-sm text-muted-foreground mt-1.5 sm:mt-2 break-words">
               <a
                 href="mailto:mohamedhaarith239@gmail.com"
                 className="hover:text-primary transition-all duration-300 relative group inline-block"
@@ -264,7 +264,7 @@ function Footer() {
           </div>
         </div>
 
-        <div className="border-t border-border pt-6 sm:pt-8 text-center text-xs sm:text-sm text-muted-foreground">
+        <div className="border-t border-border pt-4 sm:pt-5 md:pt-6 lg:pt-8 text-center text-[10px] sm:text-xs md:text-sm text-muted-foreground">
           <p className="break-words">
             &copy; 2025 PROMPTATHON -{" "}
             <a
