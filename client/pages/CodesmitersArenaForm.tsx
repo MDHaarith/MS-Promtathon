@@ -261,9 +261,9 @@ export default function CodesmitersArenaForm() {
         <div className="w-full max-w-2xl mx-auto">
           <button
             onClick={() => navigate("/register")}
-            className="inline-flex items-center gap-2 text-primary hover:text-primary/80 transition-colors mb-8"
+            className="inline-flex items-center gap-1 sm:gap-2 text-primary hover:text-primary/80 transition-colors mb-4 sm:mb-6 md:mb-8 text-sm sm:text-base"
           >
-            <ArrowLeft className="w-5 h-5" />
+            <ArrowLeft className="w-4 h-4 sm:w-5 sm:h-5" />
             Back to Events
           </button>
 
@@ -279,7 +279,7 @@ export default function CodesmitersArenaForm() {
           <div className="bg-card rounded-lg sm:rounded-xl border border-primary/20 p-4 sm:p-6 md:p-8 animate-fade-in-up">
             <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-6 md:space-y-8">
               {error && (
-                <div className="p-4 rounded-lg bg-red-500/10 border border-red-500/30 text-red-600">
+                <div className="p-3 sm:p-4 rounded-lg bg-red-500/10 border border-red-500/30 text-red-600 text-sm sm:text-base">
                   {error}
                 </div>
               )}
