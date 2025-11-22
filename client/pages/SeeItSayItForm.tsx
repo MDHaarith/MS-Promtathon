@@ -99,7 +99,6 @@ export default function SeeItSayItForm() {
       submitData.append(FORM_ENTRY_ID_REG, formData.regNo);
       submitData.append(FORM_ENTRY_ID_DEPT, formData.department);
       submitData.append(FORM_ENTRY_ID_SECTION, formData.section);
-      submitData.append(FORM_ENTRY_ID_EVENT, "See It Say It Get It");
 
       await fetch(
         `https://docs.google.com/forms/d/e/${GOOGLE_FORM_ID}/formResponse`,
