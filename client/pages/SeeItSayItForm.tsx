@@ -198,7 +198,7 @@ export default function SeeItSayItForm() {
                   name="regNo"
                   value={formData.regNo}
                   onChange={handleInputChange}
-                  placeholder="e.g., 1422510XXXX"
+                  placeholder="e.g., 14222510XXXX"
                   className="w-full px-4 py-2 rounded-lg border border-border bg-background hover:border-primary/50 focus:border-primary focus:outline-none transition-colors"
                   required
                 />
@@ -208,35 +208,35 @@ export default function SeeItSayItForm() {
                 <label className="block text-sm font-semibold mb-2">
                   Department <span className="text-red-500">*</span>
                 </label>
-                <select
+                <input
+                  type="text"
                   name="department"
                   value={formData.department}
                   onChange={handleInputChange}
+                  placeholder="Enter department"
                   className="w-full px-4 py-2 rounded-lg border border-border bg-background hover:border-primary/50 focus:border-primary focus:outline-none transition-colors"
                   required
-                >
-                  <option value="">Select Department</option>
-                  {departments.map((dept) => (
-                    <option key={dept} value={dept}>
-                      {dept}
-                    </option>
-                  ))}
-                </select>
+                />
               </div>
 
               <div>
                 <label className="block text-sm font-semibold mb-2">
                   Section <span className="text-red-500">*</span>
                 </label>
-                <input
-                  type="text"
+                <select
                   name="section"
                   value={formData.section}
                   onChange={handleInputChange}
-                  placeholder="Enter section (1, 2, or 3)"
                   className="w-full px-4 py-2 rounded-lg border border-border bg-background hover:border-primary/50 focus:border-primary focus:outline-none transition-colors"
                   required
-                />
+                >
+                  <option value="">Select Section</option>
+                  {sections.map((section) => (
+                    <option key={section} value={section}>
+                      Section {section}
+                    </option>
+                  ))}
+                </select>
               </div>
 
               <button
