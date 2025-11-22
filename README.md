@@ -2,6 +2,26 @@
 
 A production-ready full-stack React application with integrated Express server, featuring React Router 6, TypeScript, Vitest, and modern tooling.
 
+## 🚀 Quick Start (Choose One)
+
+### 1. GitHub Codespaces (Cloud - Easiest)
+Click **"Code"** → **"Codespaces"** → **"Create codespace"** → Wait 2-3 min → `pnpm dev`
+
+### 2. Local Computer
+```bash
+git clone <repo> && cd <folder>
+chmod +x setup.sh && ./setup.sh  # macOS/Linux
+setup.bat                         # Windows
+pnpm dev
+```
+
+### 3. Production Deployed
+Just share the link - no setup needed!
+
+**👉 For detailed instructions, see [RUN.md](RUN.md) or [START.md](START.md)**
+
+---
+
 ## Tech Stack
 
 - **Package Manager**: pnpm (v10.14.0)
