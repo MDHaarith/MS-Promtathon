@@ -37,17 +37,16 @@ function MemberFormSection({ memberNum, data, onInputChange }: MemberFormSection
   const memberKey = memberNum === 1 ? "member1" : "member2";
 
   return (
-    <div className="p-4 sm:p-6 rounded-lg border border-primary/20 bg-primary/5">
-      <h3 className="text-base sm:text-lg font-bold mb-4 sm:mb-6 text-primary">Member {memberNum}</h3>
+    <div className="p-3 sm:p-5 md:p-6 rounded-lg border border-primary/20 bg-primary/5">
+      <h3 className="text-sm sm:text-base md:text-lg font-bold mb-3 sm:mb-4 md:mb-5 text-primary">Member {memberNum}</h3>
 
-      <div className="space-y-3 sm:space-y-4">
+      <div className="space-y-2.5 sm:space-y-3 md:space-y-4">
         <div>
-          <label className="block text-xs sm:text-sm font-semibold mb-1 sm:mb-2">
+          <label className="block text-xs sm:text-sm font-semibold mb-0.5 sm:mb-1.5">
             Full Name <span className="text-red-500">*</span>
           </label>
-          <p className="text-xs text-muted-foreground mb-2 sm:mb-3">
-            Format: Your Name will be converted to CAPITAL FORMAT WITH INITIAL AT LAST
-            (e.g., "Navin Kumar K" becomes "NAVIN KUMAR K")
+          <p className="text-[11px] sm:text-xs text-muted-foreground mb-1.5 sm:mb-2 leading-tight">
+            Format: Name converts to CAPITALS WITH INITIAL AT LAST (e.g., "Navin Kumar K" → "NAVIN KUMAR K")
           </p>
           <input
             type="text"
@@ -59,13 +58,13 @@ function MemberFormSection({ memberNum, data, onInputChange }: MemberFormSection
             autoComplete="name"
             spellCheck="false"
             inputMode="text"
-            className="w-full px-4 py-2 rounded-lg border border-border bg-background hover:border-primary/50 focus:border-primary focus:outline-none transition-colors text-base [-webkit-appearance:none]"
+            className="w-full px-3 py-1.5 sm:px-4 sm:py-2 rounded-lg border border-border bg-background hover:border-primary/50 focus:border-primary focus:outline-none transition-colors text-sm sm:text-base [-webkit-appearance:none]"
             required
           />
         </div>
 
         <div>
-          <label className="block text-xs sm:text-sm font-semibold mb-1 sm:mb-2">
+          <label className="block text-xs sm:text-sm font-semibold mb-0.5 sm:mb-1.5">
             Email <span className="text-red-500">*</span>
           </label>
           <input
@@ -77,13 +76,13 @@ function MemberFormSection({ memberNum, data, onInputChange }: MemberFormSection
             placeholder="email@example.com"
             autoComplete="email"
             inputMode="email"
-            className="w-full px-4 py-2 rounded-lg border border-border bg-background hover:border-primary/50 focus:border-primary focus:outline-none transition-colors text-base [-webkit-appearance:none]"
+            className="w-full px-3 py-1.5 sm:px-4 sm:py-2 rounded-lg border border-border bg-background hover:border-primary/50 focus:border-primary focus:outline-none transition-colors text-sm sm:text-base [-webkit-appearance:none]"
             required
           />
         </div>
 
         <div>
-          <label className="block text-xs sm:text-sm font-semibold mb-1 sm:mb-2">
+          <label className="block text-xs sm:text-sm font-semibold mb-0.5 sm:mb-1.5">
             Registration Number <span className="text-red-500">*</span>
           </label>
           <input
@@ -95,13 +94,13 @@ function MemberFormSection({ memberNum, data, onInputChange }: MemberFormSection
             placeholder="e.g., 14222510XXXX"
             autoComplete="off"
             inputMode="numeric"
-            className="w-full px-4 py-2 rounded-lg border border-border bg-background hover:border-primary/50 focus:border-primary focus:outline-none transition-colors text-base [-webkit-appearance:none]"
+            className="w-full px-3 py-1.5 sm:px-4 sm:py-2 rounded-lg border border-border bg-background hover:border-primary/50 focus:border-primary focus:outline-none transition-colors text-sm sm:text-base [-webkit-appearance:none]"
             required
           />
         </div>
 
         <div>
-          <label className="block text-xs sm:text-sm font-semibold mb-1 sm:mb-2">
+          <label className="block text-xs sm:text-sm font-semibold mb-0.5 sm:mb-1.5">
             Department <span className="text-red-500">*</span>
           </label>
           <input
@@ -117,13 +116,13 @@ function MemberFormSection({ memberNum, data, onInputChange }: MemberFormSection
             placeholder="Enter department"
             autoComplete="off"
             inputMode="text"
-            className="w-full px-4 py-2 rounded-lg border border-border bg-background hover:border-primary/50 focus:border-primary focus:outline-none transition-colors text-base [-webkit-appearance:none]"
+            className="w-full px-3 py-1.5 sm:px-4 sm:py-2 rounded-lg border border-border bg-background hover:border-primary/50 focus:border-primary focus:outline-none transition-colors text-sm sm:text-base [-webkit-appearance:none]"
             required
           />
         </div>
 
         <div>
-          <label className="block text-xs sm:text-sm font-semibold mb-1 sm:mb-2">
+          <label className="block text-xs sm:text-sm font-semibold mb-0.5 sm:mb-1.5">
             Section <span className="text-red-500">*</span>
           </label>
           <select
@@ -131,7 +130,7 @@ function MemberFormSection({ memberNum, data, onInputChange }: MemberFormSection
             onChange={(e) =>
               onInputChange(memberKey as "member1" | "member2", "section", e.target.value)
             }
-            className="w-full px-4 py-2 rounded-lg border border-border bg-background hover:border-primary/50 focus:border-primary focus:outline-none transition-colors text-base appearance-none cursor-pointer [-webkit-appearance:none]"
+            className="w-full px-3 py-1.5 sm:px-4 sm:py-2 rounded-lg border border-border bg-background hover:border-primary/50 focus:border-primary focus:outline-none transition-colors text-sm sm:text-base appearance-none cursor-pointer [-webkit-appearance:none]"
             required
           >
             <option value="">Select Section</option>
@@ -265,30 +264,30 @@ export default function CodesmitersArenaForm() {
 
   return (
     <Layout>
-      <section className="w-full relative pt-6 sm:pt-10 md:pt-20 pb-10 px-3 sm:px-4 bg-gradient-to-br from-primary/10 via-background to-secondary/10 overflow-x-hidden" style={{minHeight: 'auto'}}>
+      <section className="w-full relative pt-4 sm:pt-6 md:pt-10 lg:pt-20 pb-6 sm:pb-8 md:pb-10 px-2 sm:px-3 md:px-4 bg-gradient-to-br from-primary/10 via-background to-secondary/10 overflow-x-hidden" style={{minHeight: 'auto'}}>
 
         <div className="w-full max-w-2xl mx-auto relative z-20">
           <button
             onClick={() => navigate("/register")}
-            className="inline-flex items-center gap-1 sm:gap-2 text-primary hover:text-primary/80 transition-colors mb-4 sm:mb-6 md:mb-8 text-sm sm:text-base"
+            className="inline-flex items-center gap-1 sm:gap-2 text-primary hover:text-primary/80 transition-colors mb-3 sm:mb-4 md:mb-6 text-xs sm:text-sm"
           >
-            <ArrowLeft className="w-4 h-4 sm:w-5 sm:h-5" />
+            <ArrowLeft className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
             Back to Events
           </button>
 
-          <div className="mb-6 sm:mb-10 md:mb-12">
-            <h1 className="text-2xl sm:text-3xl md:text-5xl font-bold mb-2 sm:mb-4 bg-gradient-to-r from-primary via-secondary to-accent bg-clip-text text-transparent">
+          <div className="mb-4 sm:mb-6 md:mb-8 lg:mb-10">
+            <h1 className="text-xl sm:text-2xl md:text-3xl lg:text-5xl font-bold mb-1.5 sm:mb-2 md:mb-3 bg-gradient-to-r from-primary via-secondary to-accent bg-clip-text text-transparent">
               Codesmith's Arena
             </h1>
-            <p className="text-xs sm:text-sm md:text-lg text-muted-foreground">
+            <p className="text-[11px] sm:text-xs md:text-sm lg:text-base text-muted-foreground">
               AI-Assisted Coding Challenge Registration - Team of 2
             </p>
           </div>
 
-          <div className="bg-card rounded-lg sm:rounded-xl border border-primary/20 p-4 sm:p-6 md:p-8">
-            <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-6 md:space-y-8">
+          <div className="bg-card rounded-lg sm:rounded-xl border border-primary/20 p-3 sm:p-5 md:p-6 lg:p-8">
+            <form onSubmit={handleSubmit} className="space-y-3 sm:space-y-4 md:space-y-5 lg:space-y-6">
               {error && (
-                <div className="p-3 sm:p-4 rounded-lg bg-red-500/10 border border-red-500/30 text-red-600 text-sm sm:text-base">
+                <div className="p-2.5 sm:p-3 md:p-4 rounded-lg bg-red-500/10 border border-red-500/30 text-red-600 text-xs sm:text-sm">
                   {error}
                 </div>
               )}
@@ -299,10 +298,10 @@ export default function CodesmitersArenaForm() {
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className="w-full px-4 sm:px-8 py-2.5 sm:py-3 rounded-lg bg-gradient-to-r from-primary to-secondary text-primary-foreground font-semibold hover:opacity-90 transition-all duration-300 transform hover:scale-105 hover:shadow-lg disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2 text-sm sm:text-base"
+                className="w-full px-3 sm:px-6 md:px-8 py-2 sm:py-2.5 md:py-3 rounded-lg bg-gradient-to-r from-primary to-secondary text-primary-foreground font-semibold hover:opacity-90 transition-all duration-300 transform hover:scale-105 hover:shadow-lg disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2 text-xs sm:text-sm md:text-base"
               >
                 {isSubmitting ? "Submitting..." : "Submit Team Registration"}
-                {!isSubmitting && <ArrowRight className="w-4 sm:w-5 h-4 sm:h-5" />}
+                {!isSubmitting && <ArrowRight className="w-3.5 sm:w-4 md:w-5 h-3.5 sm:h-4 md:h-5" />}
               </button>
             </form>
           </div>
