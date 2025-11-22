@@ -4,12 +4,11 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 const GOOGLE_FORM_ID = "1FAIpQLSe8UNU5n8ok9tCuF7wRHdyaR3lI6hHvV-0Gw78OeD7c9GMxzQ";
-const FORM_ENTRY_ID_NAME = "entry.123456789"; // Update with actual form field ID
-const FORM_ENTRY_ID_EMAIL = "entry.123456790"; // Update with actual form field ID
-const FORM_ENTRY_ID_REG = "entry.123456791"; // Update with actual form field ID
-const FORM_ENTRY_ID_DEPT = "entry.123456792"; // Update with actual form field ID
-const FORM_ENTRY_ID_SECTION = "entry.123456793"; // Update with actual form field ID
-const FORM_ENTRY_ID_EVENT = "entry.123456794"; // Update with actual form field ID
+const FORM_ENTRY_ID_NAME = "entry.1884265043";
+const FORM_ENTRY_ID_EMAIL = "entry.1839467031";
+const FORM_ENTRY_ID_REG = "entry.1195877935";
+const FORM_ENTRY_ID_DEPT = "entry.513669972";
+const FORM_ENTRY_ID_SECTION = "entry.1212348438";
 
 const sections = ["1", "2", "3"];
 const departments = [
