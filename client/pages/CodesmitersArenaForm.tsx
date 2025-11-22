@@ -235,7 +235,7 @@ export default function CodesmitersArenaForm() {
               onChange={(e) =>
                 handleInputChange(memberKey as "member1" | "member2", "section", e.target.value)
               }
-              className="w-full px-4 py-2 rounded-lg border border-border bg-background hover:border-primary/50 focus:border-primary focus:outline-none transition-colors"
+              className="w-full px-4 py-2 rounded-lg border border-border bg-background hover:border-primary/50 focus:border-primary focus:outline-none transition-colors text-base"
               required
             >
               <option value="">Select Section</option>
@@ -277,7 +277,7 @@ export default function CodesmitersArenaForm() {
           </div>
 
           <div className="bg-card rounded-lg sm:rounded-xl border border-primary/20 p-4 sm:p-6 md:p-8 animate-fade-in-up">
-            <form onSubmit={handleSubmit} className="space-y-8">
+            <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-6 md:space-y-8">
               {error && (
                 <div className="p-4 rounded-lg bg-red-500/10 border border-red-500/30 text-red-600">
                   {error}
@@ -290,16 +290,16 @@ export default function CodesmitersArenaForm() {
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className="w-full px-8 py-3 rounded-lg bg-gradient-to-r from-primary to-secondary text-primary-foreground font-semibold hover:opacity-90 transition-all duration-300 transform hover:scale-105 hover:shadow-lg disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
+                className="w-full px-4 sm:px-8 py-2.5 sm:py-3 rounded-lg bg-gradient-to-r from-primary to-secondary text-primary-foreground font-semibold hover:opacity-90 transition-all duration-300 transform hover:scale-105 hover:shadow-lg disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2 text-sm sm:text-base"
               >
                 {isSubmitting ? "Submitting..." : "Submit Team Registration"}
-                {!isSubmitting && <ArrowRight className="w-5 h-5" />}
+                {!isSubmitting && <ArrowRight className="w-4 sm:w-5 h-4 sm:h-5" />}
               </button>
             </form>
           </div>
 
-          <div className="mt-8 p-6 rounded-lg bg-primary/5 border border-primary/20">
-            <p className="text-sm text-muted-foreground">
+          <div className="mt-4 sm:mt-6 md:mt-8 p-3 sm:p-6 rounded-lg bg-primary/5 border border-primary/20">
+            <p className="text-xs sm:text-sm text-muted-foreground">
               <span className="font-semibold text-foreground">Note:</span> Both
               team members' information is required. You'll receive confirmation
               emails for both members.
