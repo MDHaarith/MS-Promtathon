@@ -35,23 +35,23 @@ function Header({
 }) {
   return (
     <header className="sticky top-0 z-50 w-full border-b border-border bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 transition-all duration-300">
-      <div className="container flex h-20 items-center justify-between px-4">
+      <div className="container flex h-16 sm:h-20 items-center justify-between px-2 sm:px-4">
         <Link
           to="/"
-          className="flex items-center gap-2 font-bold text-2xl hover:scale-105 transition-transform duration-300"
+          className="flex items-center gap-1 sm:gap-2 font-bold text-lg sm:text-2xl hover:scale-105 transition-transform duration-300 flex-shrink-0"
         >
-          <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-primary to-secondary flex items-center justify-center transition-all duration-300 hover:shadow-lg">
-            <Zap className="w-6 h-6 text-white" />
+          <div className="w-8 sm:w-10 h-8 sm:h-10 rounded-lg bg-gradient-to-br from-primary to-secondary flex items-center justify-center transition-all duration-300 hover:shadow-lg">
+            <Zap className="w-5 sm:w-6 h-5 sm:h-6 text-white" />
           </div>
-          <span className="hidden sm:inline bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
+          <span className="hidden md:inline bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent whitespace-nowrap">
             PROMPTATHON
           </span>
-          <span className="sm:hidden bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent text-lg">
+          <span className="md:hidden bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent text-base sm:text-lg whitespace-nowrap">
             PROM
           </span>
         </Link>
 
-        <nav className="hidden md:flex items-center gap-8">
+        <nav className="hidden lg:flex items-center gap-4 xl:gap-8 text-sm xl:text-base">
           <NavLink href="/#about">About</NavLink>
           <NavLink href="/#events">Events</NavLink>
           <NavLink href="/#workshop">Workshop</NavLink>
@@ -60,21 +60,21 @@ function Header({
           </NavLink>
         </nav>
 
-        <div className="flex items-center gap-4">
+        <div className="flex items-center gap-2 sm:gap-4">
           <button
             onClick={onToggleDarkMode}
-            className="p-2 rounded-lg hover:bg-muted transition-all duration-300 transform hover:scale-110 hover:shadow-md"
+            className="p-1.5 sm:p-2 rounded-lg hover:bg-muted transition-all duration-300 transform hover:scale-110 hover:shadow-md"
             aria-label="Toggle dark mode"
           >
             {isDark ? (
-              <Sun className="w-5 h-5 text-yellow-500 transition-transform duration-300 rotate-0 group-hover:rotate-180" />
+              <Sun className="w-4 sm:w-5 h-4 sm:h-5 text-yellow-500 transition-transform duration-300 rotate-0 group-hover:rotate-180" />
             ) : (
-              <Moon className="w-5 h-5 text-slate-600 transition-transform duration-300" />
+              <Moon className="w-4 sm:w-5 h-4 sm:h-5 text-slate-600 transition-transform duration-300" />
             )}
           </button>
           <a
             href="#contact"
-            className="px-4 py-2 rounded-lg bg-gradient-to-r from-primary to-secondary text-primary-foreground font-medium hover:opacity-90 transition-all duration-300 transform hover:scale-105 hover:shadow-lg text-sm"
+            className="px-3 sm:px-4 py-1.5 sm:py-2 rounded-lg bg-gradient-to-r from-primary to-secondary text-primary-foreground font-medium hover:opacity-90 transition-all duration-300 transform hover:scale-105 hover:shadow-lg text-xs sm:text-sm whitespace-nowrap"
           >
             Register
           </a>
@@ -104,26 +104,26 @@ function NavLink({
 
 function Footer() {
   return (
-    <footer className="border-t border-border bg-muted py-12 mt-20 transition-all duration-300">
-      <div className="container px-4">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
+    <footer className="border-t border-border bg-muted py-8 sm:py-12 mt-20 transition-all duration-300">
+      <div className="container px-3 sm:px-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 mb-8 sm:mb-12">
           <div>
-            <h3 className="font-bold text-lg mb-4 bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
+            <h3 className="font-bold text-base sm:text-lg mb-3 sm:mb-4 bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
               PROMPTATHON
             </h3>
-            <p className="text-sm text-muted-foreground">
+            <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed">
               Spread awareness about AI prompting and prompt engineering across
               campus.
             </p>
           </div>
 
           <div>
-            <h4 className="font-semibold mb-4">Events</h4>
-            <ul className="space-y-2 text-sm text-muted-foreground">
+            <h4 className="font-semibold text-sm sm:text-base mb-3 sm:mb-4">Events</h4>
+            <ul className="space-y-1.5 sm:space-y-2 text-xs sm:text-sm text-muted-foreground">
               <li>
                 <a
                   href="#events"
-                  className="hover:text-primary transition-all duration-300 relative group inline-block"
+                  className="hover:text-primary transition-all duration-300 relative group inline-block break-words"
                 >
                   See It Say It Get It
                   <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
@@ -132,7 +132,7 @@ function Footer() {
               <li>
                 <a
                   href="#events"
-                  className="hover:text-primary transition-all duration-300 relative group inline-block"
+                  className="hover:text-primary transition-all duration-300 relative group inline-block break-words"
                 >
                   Codesmith&apos;s Arena
                   <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
@@ -141,7 +141,7 @@ function Footer() {
               <li>
                 <a
                   href="#workshop"
-                  className="hover:text-primary transition-all duration-300 relative group inline-block"
+                  className="hover:text-primary transition-all duration-300 relative group inline-block break-words"
                 >
                   AI Workshop
                   <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
@@ -151,14 +151,14 @@ function Footer() {
           </div>
 
           <div>
-            <h4 className="font-semibold mb-4">College</h4>
-            <ul className="space-y-2 text-sm text-muted-foreground">
+            <h4 className="font-semibold text-sm sm:text-base mb-3 sm:mb-4">College</h4>
+            <ul className="space-y-1.5 sm:space-y-2 text-xs sm:text-sm text-muted-foreground">
               <li>
                 <a
                   href="https://srmvalliammai.ac.in/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="hover:text-primary transition-all duration-300 relative group inline-block"
+                  className="hover:text-primary transition-all duration-300 relative group inline-block break-words"
                 >
                   SRM Valliammai Engineering College
                   <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
@@ -169,7 +169,7 @@ function Footer() {
                   href="https://srmvalliammai.ac.in/be-electronics-and-communications-engineering/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="hover:text-primary transition-all duration-300 relative group inline-block"
+                  className="hover:text-primary transition-all duration-300 relative group inline-block break-words"
                 >
                   Department of ECE
                   <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
@@ -179,17 +179,17 @@ function Footer() {
           </div>
 
           <div>
-            <h4 className="font-semibold mb-4">Contact</h4>
-            <p className="text-sm text-muted-foreground">
+            <h4 className="font-semibold text-sm sm:text-base mb-3 sm:mb-4">Contact</h4>
+            <p className="text-xs sm:text-sm text-muted-foreground">
               <a
                 href="tel:+918015885707"
-                className="hover:text-primary transition-all duration-300 relative group inline-block"
+                className="hover:text-primary transition-all duration-300 relative group inline-block break-words"
               >
                 +91-8015885707
                 <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
               </a>
             </p>
-            <p className="text-sm text-muted-foreground mt-2">
+            <p className="text-xs sm:text-sm text-muted-foreground mt-2 break-words">
               <a
                 href="mailto:mohamedhaarith239@gmail.com"
                 className="hover:text-primary transition-all duration-300 relative group inline-block"
@@ -201,8 +201,8 @@ function Footer() {
           </div>
         </div>
 
-        <div className="border-t border-border pt-8 text-center text-sm text-muted-foreground">
-          <p>
+        <div className="border-t border-border pt-6 sm:pt-8 text-center text-xs sm:text-sm text-muted-foreground">
+          <p className="break-words">
             &copy; 2024 PROMPTATHON -{" "}
             <a
               href="https://srmvalliammai.ac.in/"

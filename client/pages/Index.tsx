@@ -169,7 +169,7 @@ function EventsSection() {
               icon={<Image className="w-8 h-8" />}
               title="See It Say It Get It"
               subtitle="AI Image Generation Competition"
-              description="Recreate displayed images using a single prompt in common AI generators. Two images will be shown with 5 minutes given for each. The image that matches most accurately wins."
+              description="Recreate displayed images using a single prompt in AI tool selected by hosts. Two images will be shown with 5 minutes given for each. The image that matches most accurately wins."
               color="from-primary"
             />
           </div>
@@ -183,7 +183,7 @@ function EventsSection() {
               icon={<Code2 className="w-8 h-8" />}
               title="Codesmith's Arena"
               subtitle="AI-Assisted Coding Challenge"
-              description="Create something original using only AI and your prompts. You'll have 30 minutes to use the AI tool selected by hosts. The entry with the best idea and fewest prompts used will win."
+              description="Create something original using only AI and your prompts. You'll have 30 minutes to use any AI of your choice. The entry with the best idea and fewest prompts used will win."
               color="from-secondary"
             />
           </div>
@@ -499,7 +499,7 @@ function ParticipantInstructionsSection() {
                 </li>
                 <li className="flex gap-2 transition-all duration-300 hover:translate-x-1">
                   <span className="text-secondary">•</span>
-                  <span>Use any common AI image generator</span>
+                  <span>Use any AI of your choice</span>
                 </li>
                 <li className="flex gap-2 transition-all duration-300 hover:translate-x-1">
                   <span className="text-secondary">•</span>
