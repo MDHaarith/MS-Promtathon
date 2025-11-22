@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { Zap, Moon, Sun } from "lucide-react";
+import { Zap, Moon, Sun, Menu, X } from "lucide-react";
 import { useState, useEffect } from "react";
 
 export default function Layout({ children }: { children: React.ReactNode }) {
@@ -33,57 +33,115 @@ function Header({
   isDark: boolean;
   onToggleDarkMode: () => void;
 }) {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  const toggleMenu = () => {
+    setIsMenuOpen(!isMenuOpen);
+  };
+
+  const closeMenu = () => {
+    setIsMenuOpen(false);
+  };
+
   return (
-    <header className="sticky top-0 z-50 w-full border-b border-border bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 transition-all duration-300">
-      <div className="container flex h-16 sm:h-20 items-center justify-between px-2 sm:px-4 gap-2 sm:gap-4">
-        <Link
-          to="/"
-          className="flex items-center gap-1 sm:gap-2 font-bold text-lg sm:text-2xl hover:scale-105 transition-transform duration-300 flex-shrink-0"
-        >
-          <div className="w-8 sm:w-10 h-8 sm:h-10 rounded-lg bg-gradient-to-br from-primary to-secondary flex items-center justify-center transition-all duration-300 hover:shadow-lg">
-            <Zap className="w-5 sm:w-6 h-5 sm:h-6 text-white" />
+    <>
+      <header className="sticky top-0 z-50 w-full border-b border-border bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 transition-all duration-300">
+        <div className="container flex h-16 sm:h-20 items-center justify-between px-3 sm:px-4 gap-2 sm:gap-4">
+          <Link
+            to="/"
+            className="flex items-center gap-1 sm:gap-2 font-bold text-xl sm:text-2xl hover:scale-105 transition-transform duration-300 flex-shrink-0"
+            onClick={closeMenu}
+          >
+            <div className="w-8 sm:w-10 h-8 sm:h-10 rounded-lg bg-gradient-to-br from-primary to-secondary flex items-center justify-center transition-all duration-300 hover:shadow-lg">
+              <Zap className="w-5 sm:w-6 h-5 sm:h-6 text-white" />
+            </div>
+            <span className="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent whitespace-nowrap">
+              PROMPTATHON
+            </span>
+          </Link>
+
+          <nav className="hidden lg:flex items-center gap-4 xl:gap-8 text-sm md:text-base flex-1 justify-center">
+            <NavLink href="/#about">About</NavLink>
+            <NavLink href="/#events">Events</NavLink>
+            <NavLink href="/#workshop">Workshop</NavLink>
+            <NavLink href="/#participant-instructions">
+              Participant Instructions
+            </NavLink>
+          </nav>
+
+          <div className="flex items-center gap-1.5 sm:gap-3 flex-shrink-0">
+            <button
+              onClick={onToggleDarkMode}
+              className="p-1.5 sm:p-2 rounded-lg hover:bg-muted transition-all duration-300 transform hover:scale-110 hover:shadow-md"
+              aria-label="Toggle dark mode"
+            >
+              {isDark ? (
+                <Sun className="w-4 sm:w-5 h-4 sm:h-5 text-yellow-500 transition-transform duration-300 rotate-0 group-hover:rotate-180" />
+              ) : (
+                <Moon className="w-4 sm:w-5 h-4 sm:h-5 text-slate-600 transition-transform duration-300" />
+              )}
+            </button>
+            <Link
+              to="/register"
+              className="px-2 sm:px-4 py-1.5 sm:py-2 rounded-lg bg-gradient-to-r from-primary to-secondary text-primary-foreground font-medium hover:opacity-90 transition-all duration-300 transform hover:scale-105 hover:shadow-lg text-xs sm:text-sm whitespace-nowrap"
+              onClick={closeMenu}
+            >
+              Register
+            </Link>
+            <button
+              onClick={toggleMenu}
+              className="lg:hidden p-1.5 rounded-lg hover:bg-muted transition-all duration-300"
+              aria-label="Toggle menu"
+            >
+              {isMenuOpen ? (
+                <X className="w-6 h-6" />
+              ) : (
+                <Menu className="w-6 h-6" />
+              )}
+            </button>
           </div>
-          <span className="hidden sm:inline bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent whitespace-nowrap">
-            PROMPTATHON
-          </span>
-          <span className="sm:hidden bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent text-base whitespace-nowrap">
-            PROM
-          </span>
-        </Link>
-
-        <nav className="flex items-center gap-2 sm:gap-4 md:gap-6 lg:gap-8 text-xs sm:text-sm md:text-base flex-1 justify-center">
-          <NavLink href="/#about">About</NavLink>
-          <NavLink href="/#events">Events</NavLink>
-          <NavLink href="/#workshop">Workshop</NavLink>
-          <NavLink href="/#participant-instructions" className="hidden sm:block">
-            Participant Instructions
-          </NavLink>
-          <NavLink href="/#participant-instructions" className="sm:hidden text-xs">
-            Instructions
-          </NavLink>
-        </nav>
-
-        <div className="flex items-center gap-1.5 sm:gap-3 flex-shrink-0">
-          <button
-            onClick={onToggleDarkMode}
-            className="p-1.5 sm:p-2 rounded-lg hover:bg-muted transition-all duration-300 transform hover:scale-110 hover:shadow-md"
-            aria-label="Toggle dark mode"
-          >
-            {isDark ? (
-              <Sun className="w-4 sm:w-5 h-4 sm:h-5 text-yellow-500 transition-transform duration-300 rotate-0 group-hover:rotate-180" />
-            ) : (
-              <Moon className="w-4 sm:w-5 h-4 sm:h-5 text-slate-600 transition-transform duration-300" />
-            )}
-          </button>
-          <a
-            href="#contact"
-            className="px-2 sm:px-4 py-1.5 sm:py-2 rounded-lg bg-gradient-to-r from-primary to-secondary text-primary-foreground font-medium hover:opacity-90 transition-all duration-300 transform hover:scale-105 hover:shadow-lg text-xs sm:text-sm whitespace-nowrap"
-          >
-            Register
-          </a>
         </div>
-      </div>
-    </header>
+
+        {isMenuOpen && (
+          <nav className="lg:hidden border-t border-border bg-background/95">
+            <div className="container px-3 py-4 space-y-3">
+              <MobileNavLink href="/#about" onClick={closeMenu}>
+                About
+              </MobileNavLink>
+              <MobileNavLink href="/#events" onClick={closeMenu}>
+                Events
+              </MobileNavLink>
+              <MobileNavLink href="/#workshop" onClick={closeMenu}>
+                Workshop
+              </MobileNavLink>
+              <MobileNavLink href="/#participant-instructions" onClick={closeMenu}>
+                Participant Instructions
+              </MobileNavLink>
+            </div>
+          </nav>
+        )}
+      </header>
+    </>
+  );
+}
+
+function MobileNavLink({
+  href,
+  children,
+  onClick,
+}: {
+  href: string;
+  children: React.ReactNode;
+  onClick: () => void;
+}) {
+  return (
+    <a
+      href={href}
+      onClick={onClick}
+      className="block py-2 px-4 rounded-lg text-sm font-medium transition-all duration-300 hover:bg-muted hover:text-primary"
+    >
+      {children}
+    </a>
   );
 }
 
