@@ -11,7 +11,7 @@ const FORM_ENTRY_ID_DEPT = "entry.123456792"; // Update with actual form field I
 const FORM_ENTRY_ID_SECTION = "entry.123456793"; // Update with actual form field ID
 const FORM_ENTRY_ID_EVENT = "entry.123456794"; // Update with actual form field ID
 
-const sections = ["A", "B", "C", "D", "E", "F"];
+const sections = ["1", "2", "3"];
 const departments = [
   "Electronics and Communication Engineering",
   "Computer Science and Engineering",
@@ -161,7 +161,7 @@ export default function SeeItSayItForm() {
                 </label>
                 <p className="text-xs text-muted-foreground mb-3">
                   Format: Your Name will be converted to CAPITAL FORMAT WITH INITIAL AT LAST
-                  (e.g., "John Doe" becomes "JOHN D")
+                  (e.g., "Navin Kumar K" becomes "NAVIN KUMAR K")
                 </p>
                 <input
                   type="text"
@@ -198,7 +198,7 @@ export default function SeeItSayItForm() {
                   name="regNo"
                   value={formData.regNo}
                   onChange={handleInputChange}
-                  placeholder="e.g., RA2301001010010"
+                  placeholder="e.g., 1422510XXXX"
                   className="w-full px-4 py-2 rounded-lg border border-border bg-background hover:border-primary/50 focus:border-primary focus:outline-none transition-colors"
                   required
                 />
@@ -228,20 +228,15 @@ export default function SeeItSayItForm() {
                 <label className="block text-sm font-semibold mb-2">
                   Section <span className="text-red-500">*</span>
                 </label>
-                <select
+                <input
+                  type="text"
                   name="section"
                   value={formData.section}
                   onChange={handleInputChange}
+                  placeholder="Enter section (1, 2, or 3)"
                   className="w-full px-4 py-2 rounded-lg border border-border bg-background hover:border-primary/50 focus:border-primary focus:outline-none transition-colors"
                   required
-                >
-                  <option value="">Select Section</option>
-                  {sections.map((section) => (
-                    <option key={section} value={section}>
-                      Section {section}
-                    </option>
-                  ))}
-                </select>
+                />
               </div>
 
               <button
