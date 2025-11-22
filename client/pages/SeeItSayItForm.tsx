@@ -1,6 +1,6 @@
 import Layout from "@/components/Layout";
 import { ArrowLeft, ArrowRight } from "lucide-react";
-import { useState } from "react";
+import { useState, useCallback } from "react";
 import { useNavigate } from "react-router-dom";
 
 const GOOGLE_FORM_ID = "1FAIpQLScinbo3nP8RAKPUaq4pVRHxiaQwhg0WM65B6ywcxwOt5oncoA";
@@ -32,16 +32,17 @@ export default function SeeItSayItForm() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [error, setError] = useState("");
 
-  const handleInputChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
-  ) => {
-    const { name, value } = e.target;
-    setFormData((prev) => ({
-      ...prev,
-      [name]: value,
-    }));
-    setError("");
-  };
+  const handleInputChange = useCallback(
+    (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
+      const { name, value } = e.target;
+      setFormData((prev) => ({
+        ...prev,
+        [name]: value,
+      }));
+      setError("");
+    },
+    []
+  );
 
   const formatName = (name: string): string => {
     return name.trim().toUpperCase();
@@ -116,10 +117,7 @@ export default function SeeItSayItForm() {
 
   return (
     <Layout>
-      <section className="w-full pt-6 sm:pt-10 md:pt-20 pb-6 sm:pb-8 md:pb-10 px-3 sm:px-4">
-        <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-background to-secondary/10 -z-10" />
-        <div className="hidden sm:block absolute top-20 right-10 w-72 h-72 bg-primary/20 rounded-full blur-3xl -z-10" />
-        <div className="hidden md:block absolute bottom-0 left-10 w-72 h-72 bg-secondary/20 rounded-full blur-3xl -z-10" />
+      <section className="w-full min-h-screen pt-6 sm:pt-10 md:pt-20 pb-6 sm:pb-8 md:pb-10 px-3 sm:px-4 bg-gradient-to-br from-primary/10 via-background to-secondary/10">
 
         <div className="w-full max-w-2xl mx-auto">
           <button
@@ -130,7 +128,7 @@ export default function SeeItSayItForm() {
             Back to Events
           </button>
 
-          <div className="mb-6 sm:mb-10 md:mb-12 animate-fade-in-up">
+          <div className="mb-6 sm:mb-10 md:mb-12">
             <h1 className="text-2xl sm:text-3xl md:text-5xl font-bold mb-2 sm:mb-4 bg-gradient-to-r from-primary via-secondary to-accent bg-clip-text text-transparent">
               See It Say It Get It
             </h1>
@@ -139,8 +137,8 @@ export default function SeeItSayItForm() {
             </p>
           </div>
 
-          <div className="bg-card rounded-lg sm:rounded-xl border border-primary/20 p-4 sm:p-6 md:p-8 animate-fade-in-up">
-            <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-6">
+          <div className="bg-card rounded-lg sm:rounded-xl border border-primary/20 p-4 sm:p-6 md:p-8">
+            <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-6 relative z-10">
               {error && (
                 <div className="p-3 sm:p-4 rounded-lg bg-red-500/10 border border-red-500/30 text-red-600 text-sm sm:text-base">
                   {error}
@@ -163,6 +161,7 @@ export default function SeeItSayItForm() {
                   placeholder="Enter your full name"
                   autoComplete="name"
                   spellCheck="false"
+                  inputMode="text"
                   className="w-full px-4 py-2 rounded-lg border border-border bg-background hover:border-primary/50 focus:border-primary focus:outline-none transition-colors text-base"
                   required
                 />
@@ -179,6 +178,7 @@ export default function SeeItSayItForm() {
                   onChange={handleInputChange}
                   placeholder="your.email@example.com"
                   autoComplete="email"
+                  inputMode="email"
                   className="w-full px-4 py-2 rounded-lg border border-border bg-background hover:border-primary/50 focus:border-primary focus:outline-none transition-colors text-base"
                   required
                 />
@@ -195,6 +195,7 @@ export default function SeeItSayItForm() {
                   onChange={handleInputChange}
                   placeholder="e.g., 14222510XXXX"
                   autoComplete="off"
+                  inputMode="numeric"
                   className="w-full px-4 py-2 rounded-lg border border-border bg-background hover:border-primary/50 focus:border-primary focus:outline-none transition-colors text-base"
                   required
                 />
@@ -211,6 +212,7 @@ export default function SeeItSayItForm() {
                   onChange={handleInputChange}
                   placeholder="Enter department"
                   autoComplete="off"
+                  inputMode="text"
                   className="w-full px-4 py-2 rounded-lg border border-border bg-background hover:border-primary/50 focus:border-primary focus:outline-none transition-colors text-base"
                   required
                 />
@@ -224,7 +226,7 @@ export default function SeeItSayItForm() {
                   name="section"
                   value={formData.section}
                   onChange={handleInputChange}
-                  className="w-full px-4 py-2 rounded-lg border border-border bg-background hover:border-primary/50 focus:border-primary focus:outline-none transition-colors text-base"
+                  className="w-full px-4 py-2 rounded-lg border border-border bg-background hover:border-primary/50 focus:border-primary focus:outline-none transition-colors text-base appearance-none cursor-pointer"
                   required
                 >
                   <option value="">Select Section</option>
@@ -247,13 +249,6 @@ export default function SeeItSayItForm() {
             </form>
           </div>
 
-          <div className="mt-4 sm:mt-6 md:mt-8 p-3 sm:p-6 rounded-lg bg-primary/5 border border-primary/20">
-            <p className="text-xs sm:text-sm text-muted-foreground">
-              <span className="font-semibold text-foreground">Note:</span> Your
-              registration will be submitted to our secure form system. You'll
-              receive a confirmation email shortly.
-            </p>
-          </div>
         </div>
       </section>
     </Layout>
