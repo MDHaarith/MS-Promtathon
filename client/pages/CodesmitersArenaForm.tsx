@@ -293,8 +293,8 @@ export default function CodesmitersArenaForm() {
                 </div>
               )}
 
-              <MemberFormSection memberNum={1} data={formData.member1} />
-              <MemberFormSection memberNum={2} data={formData.member2} />
+              <MemberFormSection memberNum={1} data={formData.member1} onInputChange={handleInputChange} />
+              <MemberFormSection memberNum={2} data={formData.member2} onInputChange={handleInputChange} />
 
               <button
                 type="submit"
