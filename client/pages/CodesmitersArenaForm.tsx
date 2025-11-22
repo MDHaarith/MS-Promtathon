@@ -110,17 +110,16 @@ export default function CodesmitersArenaForm() {
       const formattedMember2Name = formatName(formData.member2.name);
 
       const submitData = new FormData();
-      submitData.append("entry.1", formattedMember1Name); // Member 1 Name
-      submitData.append("entry.2", formData.member1.email); // Member 1 Email
-      submitData.append("entry.3", formData.member1.regNo); // Member 1 Reg No
-      submitData.append("entry.4", formData.member1.department); // Member 1 Department
-      submitData.append("entry.5", formData.member1.section); // Member 1 Section
-      submitData.append("entry.6", formattedMember2Name); // Member 2 Name
-      submitData.append("entry.7", formData.member2.email); // Member 2 Email
-      submitData.append("entry.8", formData.member2.regNo); // Member 2 Reg No
-      submitData.append("entry.9", formData.member2.department); // Member 2 Department
-      submitData.append("entry.10", formData.member2.section); // Member 2 Section
-      submitData.append("entry.11", "Codesmith's Arena"); // Event Name
+      submitData.append("entry.1884265043", formattedMember1Name); // Member 1 Name
+      submitData.append("entry.551813573", formData.member1.email); // Member 1 Email
+      submitData.append("entry.513669972", formData.member1.regNo); // Member 1 Reg No
+      submitData.append("entry.85602000", formData.member1.department); // Member 1 Department
+      submitData.append("entry.1212348438", formData.member1.section); // Member 1 Section
+      submitData.append("entry.994293442", formattedMember2Name); // Member 2 Name
+      submitData.append("entry.258782101", formData.member2.email); // Member 2 Email
+      submitData.append("entry.1696388815", formData.member2.regNo); // Member 2 Reg No
+      submitData.append("entry.318312040", formData.member2.department); // Member 2 Department
+      submitData.append("entry.1521586158", formData.member2.section); // Member 2 Section
 
       await fetch(
         `https://docs.google.com/forms/d/e/${GOOGLE_FORM_ID}/formResponse`,
