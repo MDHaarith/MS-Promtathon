@@ -203,7 +203,7 @@ function Footer() {
 
         <div className="border-t border-border pt-6 sm:pt-8 text-center text-xs sm:text-sm text-muted-foreground">
           <p className="break-words">
-            &copy; 2024 PROMPTATHON -{" "}
+            &copy; 2025 PROMPTATHON -{" "}
             <a
               href="https://srmvalliammai.ac.in/"
               target="_blank"
