@@ -51,32 +51,6 @@ export default function Register() {
             />
           </div>
 
-          <div className="grid md:grid-cols-2 gap-8">
-            {/* Both Events */}
-            <EventRegistrationCard
-              icon={<Image className="w-8 h-8" />}
-              title="Both Events"
-              subtitle="Participate in Both Competitions"
-              description="Challenge yourself by participating in both competitions. Experience both AI image generation and AI-assisted coding in a single event."
-              color="from-accent"
-              isSelected={selectedEvent === "both"}
-              onSelect={() => setSelectedEvent("both")}
-              formUrl={GOOGLE_FORM_URL}
-            />
-
-            {/* Workshop Only */}
-            <EventRegistrationCard
-              icon={<Code2 className="w-8 h-8" />}
-              title="AI Prompting Workshop"
-              subtitle="Interactive Learning Session"
-              description="Join our AI Prompting Workshop to learn the fundamentals of prompt engineering and master the art of intelligent prompting before the competitions."
-              color="from-purple-500"
-              isSelected={selectedEvent === "workshop"}
-              onSelect={() => setSelectedEvent("workshop")}
-              formUrl={GOOGLE_FORM_URL}
-            />
-          </div>
-
           {selectedEvent && (
             <div className="mt-12 p-8 rounded-xl bg-card border-2 border-primary/50 text-center animate-fade-in-up">
               <h2 className="text-2xl font-bold mb-4">Ready to Register?</h2>
