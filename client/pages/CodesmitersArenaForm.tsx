@@ -202,7 +202,7 @@ export default function CodesmitersArenaForm() {
               onChange={(e) =>
                 handleInputChange(memberKey as "member1" | "member2", "regNo", e.target.value)
               }
-              placeholder="e.g., 1422510XXXX"
+              placeholder="e.g., 14222510XXXX"
               className="w-full px-4 py-2 rounded-lg border border-border bg-background hover:border-primary/50 focus:border-primary focus:outline-none transition-colors"
               required
             />
@@ -212,7 +212,8 @@ export default function CodesmitersArenaForm() {
             <label className="block text-sm font-semibold mb-2">
               Department <span className="text-red-500">*</span>
             </label>
-            <select
+            <input
+              type="text"
               value={data.department}
               onChange={(e) =>
                 handleInputChange(
@@ -221,32 +222,31 @@ export default function CodesmitersArenaForm() {
                   e.target.value
                 )
               }
+              placeholder="Enter department"
               className="w-full px-4 py-2 rounded-lg border border-border bg-background hover:border-primary/50 focus:border-primary focus:outline-none transition-colors"
               required
-            >
-              <option value="">Select Department</option>
-              {departments.map((dept) => (
-                <option key={dept} value={dept}>
-                  {dept}
-                </option>
-              ))}
-            </select>
+            />
           </div>
 
           <div>
             <label className="block text-sm font-semibold mb-2">
               Section <span className="text-red-500">*</span>
             </label>
-            <input
-              type="text"
+            <select
               value={data.section}
               onChange={(e) =>
                 handleInputChange(memberKey as "member1" | "member2", "section", e.target.value)
               }
-              placeholder="Enter section (1, 2, or 3)"
               className="w-full px-4 py-2 rounded-lg border border-border bg-background hover:border-primary/50 focus:border-primary focus:outline-none transition-colors"
               required
-            />
+            >
+              <option value="">Select Section</option>
+              {sections.map((section) => (
+                <option key={section} value={section}>
+                  Section {section}
+                </option>
+              ))}
+            </select>
           </div>
         </div>
       </div>
