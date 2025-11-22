@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 
 const GOOGLE_FORM_ID = "1FAIpQLSe8UNU5n8ok9tCuF7wRHdyaR3lI6hHvV-0Gw78OeD7c9GMxzQ";
 
-const sections = ["A", "B", "C", "D", "E", "F"];
+const sections = ["1", "2", "3"];
 const departments = [
   "Electronics and Communication Engineering",
   "Computer Science and Engineering",
@@ -162,7 +162,7 @@ export default function CodesmitersArenaForm() {
             </label>
             <p className="text-xs text-muted-foreground mb-3">
               Format: Your Name will be converted to CAPITAL FORMAT WITH INITIAL AT LAST
-              (e.g., "John Doe" becomes "JOHN D")
+              (e.g., "Navin Kumar K" becomes "NAVIN KUMAR K")
             </p>
             <input
               type="text"
@@ -202,7 +202,7 @@ export default function CodesmitersArenaForm() {
               onChange={(e) =>
                 handleInputChange(memberKey as "member1" | "member2", "regNo", e.target.value)
               }
-              placeholder="e.g., RA2301001010010"
+              placeholder="e.g., 1422510XXXX"
               className="w-full px-4 py-2 rounded-lg border border-border bg-background hover:border-primary/50 focus:border-primary focus:outline-none transition-colors"
               required
             />
@@ -237,21 +237,16 @@ export default function CodesmitersArenaForm() {
             <label className="block text-sm font-semibold mb-2">
               Section <span className="text-red-500">*</span>
             </label>
-            <select
+            <input
+              type="text"
               value={data.section}
               onChange={(e) =>
                 handleInputChange(memberKey as "member1" | "member2", "section", e.target.value)
               }
+              placeholder="Enter section (1, 2, or 3)"
               className="w-full px-4 py-2 rounded-lg border border-border bg-background hover:border-primary/50 focus:border-primary focus:outline-none transition-colors"
               required
-            >
-              <option value="">Select Section</option>
-              {sections.map((section) => (
-                <option key={section} value={section}>
-                  Section {section}
-                </option>
-              ))}
-            </select>
+            />
           </div>
         </div>
       </div>
